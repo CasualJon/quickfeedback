@@ -1,0 +1,217 @@
+/* ==========================================================================
+   Base Styles, Bootstrap Modifications & Fonts Import
+   ========================================================================== */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+::-moz-selection {
+    background: #71c5e7;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+::selection {
+    background: #71c537;
+    color: #a4003a;
+    text-shadow: none;
+}
+
+/*
+ * Improved default horizontal
+ */
+
+ hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.centered {
+	text-align: center
+}
+
+.mt {
+	margin-top: 80px;
+}
+
+.mb {
+	margin-bottom: 80px;
+}
+
+
+/* ==========================================================================
+   General styles
+   ========================================================================== */
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+
+    background-color: #000000;
+    color: #999999;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+    color: #999999;
+}
+h1 {
+  font-size: 80px; /* Default h1 size */
+}
+
+img {
+  border-radius: 6px;
+}
+
+li {
+  margin: 6px 0;
+}
+
+label {
+  width: 28%;
+  text-align: right;
+  font-size: 18px;
+}
+
+input[type="text"] {
+  width: 52%;
+  margin-top: 2px;
+  height: 35px;
+  margin-bottom: 6px;
+  padding: 2px;
+  border: 2px solid #999999;
+  vertical-align: middle;
+  background-color: #292929;
+}
+
+input[type="number"] {
+  width: 52%;
+  margin-top: 2px;
+  height: 35px;
+  margin-bottom: 6px;
+  padding: 2px;
+  border: 2px solid #999999;
+  vertical-align: middle;
+  background-color: #292929;
+}
+
+select {
+  width: 52%;
+  margin-top: 2px;
+  height: 35px;
+  margin-bottom: 2px;
+  padding: 2px;
+  border: 2px solid #999999;
+  vertical-align: middle;
+  background-color: #292929;
+}
+
+textarea {
+  width: 52%;
+  margin-top: 2px;
+  height: 170px;
+  margin-bottom: 2px;
+  padding: 2px;
+  border: 2px solid #999999;
+  resize: none;
+  overflow: auto;
+  vertical-align: top;
+  background-color: #292929;
+}
+
+button {
+  width: 52%;
+  height: 40px;
+  font-size: 20px;
+  background-color: #2792bc;
+}
+
+/* Sizing overrides for mobile form factors */
+@media only screen and (max-width: 768px) {
+    h1 {
+      font-size: 40px; /* Override h1 size for medium mobile */
+    }
+    label {
+      width: 100%; /* Override width for mobile (JS sets line break) */
+      text-align: left; /* Switching align so it doesn't look dumb */
+    }
+    input[type="text"] {
+      width: 100%; /* Override width for mobile (JS sets line break) */
+    }
+    input[type="number"] {
+      width: 100%; /* Override width for mobile (JS sets line break) */
+    }
+    select {
+      width: 100%; /* Override width for mobile (JS sets line break) */
+    }
+    textarea {
+      width: 100%; /* Override width for mobile (JS sets line break) */
+    }
+    button {
+      width: 100%; /* Override width for mobile (JS sets line break) */
+    }
+}
+@media only screen and (max-width: 640px) {
+    h1 {
+        font-size: 34px; /* Override h1 size for smaller mobile */
+    }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #666666;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2792bc;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2792bc;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+/* Rounded slider */
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}

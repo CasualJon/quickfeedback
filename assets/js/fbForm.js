@@ -144,6 +144,7 @@ browseSpan.setAttribute("class", "slider round");
 browseBlankLabel.appendChild(browseSpan);
 
 theForm.appendChild(browseBlankLabel);
+theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------

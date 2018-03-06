@@ -4,6 +4,13 @@ const width = window.innerWidth
   || document.body.clientWidth;
 const smallScr = width < 768;
 
+const moodData = {
+  POSITIVE: "Positive",
+  NEUTRAL: "Neutral",
+  NEGATIVE: "Negative",
+};
+
+
 //Create arrays for multi-select category lists
 var uID = [
   "",           //Empty value
@@ -19,7 +26,8 @@ const formSpace = document.getElementById('feedback');
 //Add a bit of space at the top
 formSpace.appendChild(document.createElement('br'));
 
-//Add logo and title
+//-------------------------------------------------
+//Logo & Title
 var theLogo = document.createElement('img');
 theLogo.setAttribute("src", "./assets/img/favicon/apple-touch-icon-57x57.png");
 theLogo.setAttribute("alt", "Quick Feedback dot i o logo");
@@ -34,7 +42,8 @@ theTitle.style.verticalAlign = "middle";
 theTitle.appendChild(titleText);
 formSpace.appendChild(theTitle);
 
-//Create new form element, name element
+//-------------------------------------------------
+//Create the Form
 var theForm = document.createElement('form');
 theForm.setAttribute("id", "feedbackForm");
 theForm.setAttribute("name", "feedbackForm");
@@ -83,82 +92,37 @@ theForm.appendChild(document.createElement('br'));
 var recentUseText = document.createElement('div');
 if (!smallScr) recentUseText.setAttribute("style", "margin-left: 28%;");
 else recentUseText.setAttribute("style", "margin-left: 0%");
-recentUseText.innerHTML = "Have you used Venmo since you were here last?";
+recentUseText.innerHTML = "How did you most recently use Venmo?";
 theForm.appendChild(recentUseText);
-
-var recentUseLabel = document.createElement('label');
-recentUseLabel.setAttribute("class", "switch");
-if (!smallScr) recentUseLabel.setAttribute("style", "margin-left: 28%");
-else recentUseLabel.setAttribute("style", "margin-left: 0%");
-
-var recentUseInput = document.createElement('input');
-recentUseInput.setAttribute("type", "checkbox");
-recentUseInput.setAttribute("name", "recentUse");
-recentUseLabel.appendChild(recentUseInput);
-
-var recentUseSpan = document.createElement('span');
-recentUseSpan.setAttribute("class", "slider round");
-recentUseLabel.appendChild(recentUseSpan);
-
-theForm.appendChild(recentUseLabel);
 theForm.appendChild(document.createElement('br'));
 
-var removableBreak1 = document.createElement('br');
-theForm.appendChild(removableBreak1);
-
 
 //-------------------------------------------------
-//How many times Venmo used?
-var haveUsedText = document.createElement('div');
-if (!smallScr) haveUsedText.setAttribute("style", "margin-left: 28%;");
-else haveUsedText.setAttribute("style", "margin-left: 0%");
-haveUsedText.innerHTML = "How many times have you used Venmo to...";
-theForm.appendChild(haveUsedText);
-
-
-//-------------------------------------------------
-//How many times did you use Venmo to send money?
+//Send money?
 var sendMoneyLabel = document.createElement('label');
 sendMoneyLabel.innerHTML = "Send money?&nbsp;";
 theForm.appendChild(sendMoneyLabel);
 
-var sendMoneyCount = document.createElement('input');
-sendMoneyCount.setAttribute("type", "number");
-sendMoneyCount.setAttribute("min", "0");
-sendMoneyCount.setAttribute("name", "sendMoneyCount");
-theForm.appendChild(sendMoneyCount);
 
-var removableBreak2 = document.createElement('br');
-theForm.appendChild(removableBreak2);
+var moneyBlankLabel = document.createElement('label');
+moneyBlankLabel.setAttribute("class", "switch");
+moneyBlankLabel.setAttribute("style", "margin-left: 0%");
 
+var sendMoneyCheckbox = document.createElement('input');
+sendMoneyCheckbox.setAttribute("type", "checkbox");
+sendMoneyCheckbox.setAttribute("name", "sendMoney");
+moneyBlankLabel.appendChild(sendMoneyCheckbox);
 
-//-------------------------------------------------
-//How many clicks did it take to send money?
-var removableBreak2b = document.createElement('br');
-theForm.appendChild(removableBreak2b);
+var sendMoneySpan = document.createElement('span');
+sendMoneySpan.setAttribute("class", "slider round");
+moneyBlankLabel.appendChild(sendMoneySpan);
 
-var moneyClicksText = document.createElement('div');
-if (!smallScr) moneyClicksText.setAttribute("style", "margin-left: 28%;");
-else moneyClicksText.setAttribute("style", "margin-left: 0%");
-moneyClicksText.innerHTML = "On average, about how many clicks did it take<br />to send money each time?";
-theForm.appendChild(moneyClicksText);
+theForm.appendChild(moneyBlankLabel);
 
-//-------------------------------------------------
-//How many times did you use Venmo to send money?
-var moneyClicksLabel = document.createElement('label');
-moneyClicksLabel.innerHTML = "# of clicks?&nbsp;";
-theForm.appendChild(moneyClicksLabel);
+var bufferSpan1 = document.createElement('span');
+bufferSpan1.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+theForm.appendChild(bufferSpan1);
 
-var moneyClicksCount = document.createElement('input');
-moneyClicksCount.setAttribute("type", "number");
-moneyClicksCount.setAttribute("min", "0");
-moneyClicksCount.setAttribute("name", "moneyClicksCount");
-theForm.appendChild(moneyClicksCount);
-
-var removableBreak2c = document.createElement('br');
-theForm.appendChild(removableBreak2c);
-var removableBreak2d = document.createElement('br');
-theForm.appendChild(removableBreak2d);
 
 //-------------------------------------------------
 //Did you use Venmo to view others' transactions?
@@ -166,31 +130,94 @@ var browseActivityLabel = document.createElement('label');
 browseActivityLabel.innerHTML = "Browse activity?&nbsp;";
 theForm.appendChild(browseActivityLabel);
 
-var browseActivityCount = document.createElement('input');
-browseActivityCount.setAttribute("type", "number");
-browseActivityCount.setAttribute("min", "0");
-browseActivityCount.setAttribute("name", "browseActivityCount");
-theForm.appendChild(browseActivityCount);
+var browseBlankLabel = document.createElement('label');
+browseBlankLabel.setAttribute("class", "switch");
+browseBlankLabel.setAttribute("style", "margin-left: 0%");
 
-var removableBreak3 = document.createElement('br');
-theForm.appendChild(removableBreak3);
+var browseCheckbox = document.createElement('input');
+browseCheckbox.setAttribute("type", "checkbox");
+browseCheckbox.setAttribute("name", "browseTransactions");
+browseBlankLabel.appendChild(browseCheckbox);
 
+var browseSpan = document.createElement('span');
+browseSpan.setAttribute("class", "slider round");
+browseBlankLabel.appendChild(browseSpan);
+
+theForm.appendChild(browseBlankLabel);
+
+
+//-------------------------------------------------
+//Receive money?
+var receiveMoneyLabel = document.createElement('label');
+receiveMoneyLabel.innerHTML = "Receive money?&nbsp;";
+theForm.appendChild(receiveMoneyLabel);
+
+
+var moneyBlank2Label = document.createElement('label');
+moneyBlank2Label.setAttribute("class", "switch");
+moneyBlank2Label.setAttribute("style", "margin-left: 0%");
+
+var receiveMoneyCheckbox = document.createElement('input');
+receiveMoneyCheckbox.setAttribute("type", "checkbox");
+receiveMoneyCheckbox.setAttribute("name", "receiveMoney");
+moneyBlank2Label.appendChild(receiveMoneyCheckbox);
+
+var receiveMoneySpan = document.createElement('span');
+receiveMoneySpan.setAttribute("class", "slider round");
+moneyBlank2Label.appendChild(receiveMoneySpan);
+
+theForm.appendChild(moneyBlank2Label);
+var bufferSpan2 = document.createElement('span');
+bufferSpan2.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+theForm.appendChild(bufferSpan2);
 
 //-------------------------------------------------
 //Did you use Venmo to invite friends to join?
 var inviteOthersLabel = document.createElement('label');
-inviteOthersLabel.innerHTML = "Invite others?&nbsp;";
+inviteOthersLabel.innerHTML = "Invite/add friends?&nbsp;";
 theForm.appendChild(inviteOthersLabel);
 
-var inviteOthersCount = document.createElement('input');
-inviteOthersCount.setAttribute("type", "number");
-inviteOthersCount.setAttribute("min", "0");
-inviteOthersCount.setAttribute("name", "inviteOthersCount");
-theForm.appendChild(inviteOthersCount);
+var inviteBlankLabel = document.createElement('label');
+inviteBlankLabel.setAttribute("class", "switch");
+inviteBlankLabel.setAttribute("style", "margin-left: 0%");
 
-var removableBreak4 = document.createElement('br');
-theForm.appendChild(removableBreak4);
+var inviteCheckbox = document.createElement('input');
+inviteCheckbox.setAttribute("type", "checkbox");
+inviteCheckbox.setAttribute("name", "inviteFriends");
+inviteBlankLabel.appendChild(inviteCheckbox);
 
+var inviteSpan = document.createElement('span');
+inviteSpan.setAttribute("class", "slider round");
+inviteBlankLabel.appendChild(inviteSpan);
+
+theForm.appendChild(inviteBlankLabel);
+theForm.appendChild(document.createElement('br'));
+
+
+//-------------------------------------------------
+//Request money?
+var requestMoneyLabel = document.createElement('label');
+requestMoneyLabel.innerHTML = "Request money?&nbsp;";
+theForm.appendChild(requestMoneyLabel);
+
+
+var moneyBlank3Label = document.createElement('label');
+moneyBlank3Label.setAttribute("class", "switch");
+moneyBlank3Label.setAttribute("style", "margin-left: 0%");
+
+var requestMoneyCheckbox = document.createElement('input');
+requestMoneyCheckbox.setAttribute("type", "checkbox");
+requestMoneyCheckbox.setAttribute("name", "requestMoney");
+moneyBlank3Label.appendChild(requestMoneyCheckbox);
+
+var requestMoneySpan = document.createElement('span');
+requestMoneySpan.setAttribute("class", "slider round");
+moneyBlank3Label.appendChild(requestMoneySpan);
+
+theForm.appendChild(moneyBlank3Label);
+var bufferSpan3 = document.createElement('span');
+bufferSpan3.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+theForm.appendChild(bufferSpan3);
 
 //-------------------------------------------------
 //Did you adjust any account settings in Venmo?
@@ -198,20 +225,118 @@ var adjustSettingsLabel = document.createElement('label');
 adjustSettingsLabel.innerHTML = "Adjust settings?&nbsp;";
 theForm.appendChild(adjustSettingsLabel);
 
-var adjustSettingsCount = document.createElement('input');
-adjustSettingsCount.setAttribute("type", "number");
-adjustSettingsCount.setAttribute("min", "0");
-adjustSettingsCount.setAttribute("name", "adjustSettingsCount");
-theForm.appendChild(adjustSettingsCount);
+var settingsBlankLabel = document.createElement('label');
+settingsBlankLabel.setAttribute("class", "switch");
+settingsBlankLabel.setAttribute("style", "margin-left: 0%");
 
-var removableBreak5 = document.createElement('br');
-theForm.appendChild(removableBreak5);
+var settingsCheckbox = document.createElement('input');
+settingsCheckbox.setAttribute("type", "checkbox");
+settingsCheckbox.setAttribute("name", "updateSettings");
+settingsBlankLabel.appendChild(settingsCheckbox);
+
+var settingsSpan = document.createElement('span');
+settingsSpan.setAttribute("class", "slider round");
+settingsBlankLabel.appendChild(settingsSpan);
+
+theForm.appendChild(settingsBlankLabel);
+theForm.appendChild(document.createElement('br'));
+theForm.appendChild(document.createElement('br'));
+
+
+//-------------------------------------------------
+//How many clicks did it take heading?
+var clicksText = document.createElement('div');
+if (!smallScr) clicksText.setAttribute("style", "margin-left: 28%;");
+else clicksText.setAttribute("style", "margin-left: 0%");
+clicksText.innerHTML = "In total, about how many clicks did it take?";
+theForm.appendChild(clicksText);
+theForm.appendChild(document.createElement('br'));
+
+//-------------------------------------------------
+//How many clicks?
+var clickCountLabel = document.createElement('label');
+clickCountLabel.innerHTML = "# of clicks?&nbsp;";
+if (!smallScr) theForm.appendChild(clickCountLabel);
+
+var clickCountData = document.createElement('input');
+clickCountData.setAttribute("type", "number");
+clickCountData.setAttribute("min", "0");
+clickCountData.setAttribute("name", "clickCount");
+theForm.appendChild(clickCountData);
+
+theForm.appendChild(document.createElement('br'));
+theForm.appendChild(document.createElement('br'));
+
+
+//-------------------------------------------------
+//How was the experience?
+var moodText = document.createElement('div');
+if (!smallScr) moodText.setAttribute("style", "margin-left: 28%;");
+else moodText.setAttribute("style", "margin-left: 0%");
+moodText.innerHTML = "Overall, how are you feeling at this moment?";
+theForm.appendChild(moodText);
+
+var moodInputHidden = document.createElement('input');
+moodInputHidden.setAttribute("type", "text");
+moodInputHidden.setAttribute("name", "mood");
+theForm.appendChild(moodInputHidden);
+
+var positiveButton = document.createElement('input');
+positiveButton.setAttribute("type", "button");
+positiveButton.style.background = "url(./assets/img/happy.png)";
+positiveButton.style.width = "72px";
+positiveButton.style.height = "72px";
+positiveButton.style.border = "none";
+if (!smallScr) positiveButton.style.marginLeft = "28%";
+else positiveButton.style.marginLeft = "0%";
+positiveButton.setAttribute("onclick", "positiveClick()");
+theForm.appendChild(positiveButton);
+
+
+var neutralButton = document.createElement('input');
+neutralButton.setAttribute("type", "button");
+neutralButton.style.background = "url(./assets/img/ok.png)";
+neutralButton.style.width = "72px";
+neutralButton.style.height = "72px";
+neutralButton.style.border = "none";
+neutralButton.style.marginLeft = "10%";
+neutralButton.setAttribute("onclick", "neutralClick()");
+theForm.appendChild(neutralButton);
+
+
+var negativeButton = document.createElement('input');
+negativeButton.setAttribute("type", "button");
+negativeButton.style.background = "url(./assets/img/sad.png)";
+negativeButton.style.width = "72px";
+negativeButton.style.height = "72px";
+negativeButton.style.border = "none";
+negativeButton.style.marginLeft = "10%";
+negativeButton.setAttribute("onclick", "negativeClick()");
+theForm.appendChild(negativeButton);
+
+var bufferSpan6 = document.createElement('span');
+theForm.appendChild(document.createElement('br'));
+theForm.appendChild(document.createElement('br'));
+
+
+//-------------------------------------------------
+//General notes?
+var notesLabel = document.createElement('label');
+notesLabel.innerHTML = "Any notes?&nbsp;";
+theForm.appendChild(notesLabel);
+
+var notesData = document.createElement('input');
+notesData.setAttribute("type", "text");
+notesData.setAttribute("min", "0");
+notesData.setAttribute("name", "notes");
+theForm.appendChild(notesData);
+
+theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------
 //Submit Button
-var removableBreak6 = document.createElement('br');
-theForm.appendChild(removableBreak6);
+theForm.appendChild(document.createElement('br'));
 
 var submit = document.createElement('button');
 submit.setAttribute("type", "button");
@@ -223,131 +348,57 @@ submit.innerHTML = "Submit";
 theForm.appendChild(submit);
 
 //Spacer line breaks to move the button off the bottom of screen if needed
-var removableBreak7 = document.createElement('br');
-theForm.appendChild(removableBreak7);
-var removableBreak8 = document.createElement('br');
-theForm.appendChild(removableBreak8);
-var removableBreak9 = document.createElement('br');
-theForm.appendChild(removableBreak9);
-
-
-//-------------------------------------------------
-//Event Listener for Slider/Checkbox to show data collection
-var slider = document.querySelector("input[name=recentUse]");
-slider.addEventListener('change', function() {
-  if (this.checked) {
-    removableBreak1.style.display = "";
-    haveUsedText.style.display = "";
-    sendMoneyLabel.style.display = "";
-    sendMoneyCount.style.display = "";
-    removableBreak2.style.display = "none";
-    moneyClicksText.style.display = "none";
-    moneyClicksLabel.style.display = "none";
-    moneyClicksCount.style.display = "none";
-    removableBreak2b.style.display = "none";
-    removableBreak2c.style.display = "none";
-    removableBreak2d.style.display = "none";
-    browseActivityLabel.style.display = "";
-    browseActivityCount.style.display = "";
-    removableBreak3.style.display = "";
-    inviteOthersLabel.style.display = "";
-    inviteOthersCount.style.display = "";
-    removableBreak4.style.display = "";
-    adjustSettingsLabel.style.display = "";
-    adjustSettingsCount.style.display = "";
-    removableBreak5.style.display = "";
-    removableBreak6.style.display = "";
-    removableBreak7.style.display = "";
-    removableBreak8.style.display = "";
-    removableBreak9.style.display = "";
-  }
-  else {
-    removableBreak1.style.display = "none";
-    haveUsedText.style.display = "none";
-    sendMoneyLabel.style.display = "none";
-    sendMoneyCount.style.display = "none";
-    sendMoneyCount.value = 0;
-    removableBreak2.style.display = "none";
-    moneyClicksText.style.display = "none";
-    moneyClicksLabel.style.display = "none";
-    moneyClicksCount.style.display = "none";
-    moneyClicksCount.value = 0;
-    removableBreak2b.style.display = "none";
-    removableBreak2c.style.display = "none";
-    removableBreak2d.style.display = "none";
-    browseActivityLabel.style.display = "none";
-    browseActivityCount.style.display = "none";
-    browseActivityCount.value = 0;
-    removableBreak3.style.display = "none";
-    inviteOthersLabel.style.display = "none";
-    inviteOthersCount.style.display = "none";
-    inviteOthersCount.value = 0;
-    removableBreak4.style.display = "none";
-    adjustSettingsLabel.style.display = "none";
-    adjustSettingsCount.style.display = "none";
-    adjustSettingsCount.value = 0;
-    removableBreak5.style.display = "none";
-    removableBreak6.style.display = "none";
-    removableBreak7.style.display = "none";
-    removableBreak8.style.display = "none";
-    removableBreak9.style.display = "none";
-  }
-});
-
-
-//-------------------------------------------------
-//Event Listener for number input on times money sent
-var moneyCnt = document.querySelector("input[name=sendMoneyCount]");
-moneyCnt.addEventListener('change', function() {
-  if (this.value > 0) {
-    removableBreak2.style.display = "";
-    moneyClicksText.style.display = "";
-    moneyClicksLabel.style.display = "";
-    moneyClicksCount.style.display = "";
-    removableBreak2b.style.display = "";
-    removableBreak2c.style.display = "";
-    removableBreak2d.style.display = "";
-  }
-  else {
-    removableBreak2.style.display = "none";
-    moneyClicksText.style.display = "none";
-    moneyClicksLabel.style.display = "none";
-    moneyClicksCount.style.display = "none";
-    moneyClicksCount.value = 0;
-    removableBreak2b.style.display = "none";
-    removableBreak2c.style.display = "none";
-    removableBreak2d.style.display = "none";
-  }
-});
+theForm.appendChild(document.createElement('br'));
+theForm.appendChild(document.createElement('br'));
+theForm.appendChild(document.createElement('br'));
 
 
 colapseAll();
 function colapseAll() {
-  removableBreak1.style.display = "none";
-  haveUsedText.style.display = "none";
-  sendMoneyLabel.style.display = "none";
-  sendMoneyCount.style.display = "none";
-  removableBreak2.style.display = "none";
-  moneyClicksText.style.display = "none";
-  moneyClicksLabel.style.display = "none";
-  moneyClicksCount.style.display = "none";
-  removableBreak2b.style.display = "none";
-  removableBreak2c.style.display = "none";
-  removableBreak2d.style.display = "none";
-  browseActivityLabel.style.display = "none";
-  browseActivityCount.style.display = "none";
-  removableBreak3.style.display = "none";
-  inviteOthersLabel.style.display = "none";
-  inviteOthersCount.style.display = "none";
-  removableBreak4.style.display = "none";
-  adjustSettingsLabel.style.display = "none";
-  adjustSettingsCount.style.display = "none";
-  removableBreak5.style.display = "none";
-  removableBreak6.style.display = "none";
-  removableBreak7.style.display = "none";
-  removableBreak8.style.display = "none";
-  removableBreak9.style.display = "none";
+  moodInputHidden.style.display = "none";
 }
+
+
+//-------------------------------------------------
+//Methods for mood button handlers
+function positiveClick() {
+  // alert("Positive Click Triggered");
+  //Set other buttons to hidden.
+  neutralButton.style.display = "none";
+  negativeButton.style.display = "none";
+
+  //Set moodInputHidden to correct enum
+  moodInputHidden.value = moodData.POSITIVE;
+}
+
+function neutralClick() {
+  // alert("Neutral Click Triggered");
+  //Set other buttons to hidden
+  positiveButton.style.display = "none";
+  negativeButton.style.display = "none";
+
+  //Ensure button position is ok
+  if (!smallScr) neutralButton.style.marginLeft = "28%";
+  else neutralButton.style.marginLeft = "0%";
+
+  //Set moodInputHidden to correct enum
+  moodInputHidden.value = moodData.NEUTRAL;
+}
+
+function negativeClick() {
+  // alert("Negative Click Triggered");
+  //Set other buttons to hidden
+  positiveButton.style.display = "none";
+  neutralButton.style.display = "none";
+
+  //Ensure button position is ok
+  if (!smallScr) negativeButton.style.marginLeft = "28%";
+  else negativeButton.style.marginLeft = "0%";
+
+  //Set moodInputHidden to correct enum
+  moodInputHidden.value = moodData.NEGATIVE;
+}
+
 
 //-------------------------------------------------
 //Form Validation & Submission Function

@@ -52,7 +52,7 @@ body {
     font-size: 16px;
 
     background-color: #000000;
-    color: #999999;
+    color: #FFFFFF;
 
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -60,7 +60,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
-    color: #999999;
+    color: #FFF300;
 }
 h1 {
   font-size: 80px; /* Default h1 size */
@@ -83,11 +83,11 @@ label {
 input[type="text"] {
   width: 52%;
   margin-top: 2px;
-  height: 35px;
+  height: 70px;
   margin-bottom: 6px;
   padding: 2px;
   border: 2px solid #999999;
-  vertical-align: middle;
+  vertical-align: top;
   background-color: #292929;
 }
 
@@ -169,6 +169,7 @@ button {
   display: inline-block;
   width: 60px;
   height: 34px;
+  vertical-align: middle;
 }
 /* Hide default HTML checkbox */
 .switch input {display:none;}
@@ -181,6 +182,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
+  vertical-align: middle;
   background-color: #666666;
   -webkit-transition: .4s;
   transition: .4s;

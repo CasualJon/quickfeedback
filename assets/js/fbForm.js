@@ -94,7 +94,6 @@ if (!smallScr) recentUseText.setAttribute("style", "margin-left: 28%;");
 else recentUseText.setAttribute("style", "margin-left: 0%");
 recentUseText.innerHTML = "How did you most recently use Venmo?";
 theForm.appendChild(recentUseText);
-theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------
@@ -119,32 +118,33 @@ moneyBlankLabel.appendChild(sendMoneySpan);
 
 theForm.appendChild(moneyBlankLabel);
 
-var bufferSpan1 = document.createElement('span');
-bufferSpan1.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-theForm.appendChild(bufferSpan1);
+// var bufferSpan1 = document.createElement('span');
+// bufferSpan1.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+// theForm.appendChild(bufferSpan1);
+theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------
 //Did you use Venmo to view others' transactions?
-var browseActivityLabel = document.createElement('label');
-browseActivityLabel.innerHTML = "Browse activity?&nbsp;";
-theForm.appendChild(browseActivityLabel);
-
-var browseBlankLabel = document.createElement('label');
-browseBlankLabel.setAttribute("class", "switch");
-browseBlankLabel.setAttribute("style", "margin-left: 0%");
-
-var browseCheckbox = document.createElement('input');
-browseCheckbox.setAttribute("type", "checkbox");
-browseCheckbox.setAttribute("name", "browseTransactions");
-browseBlankLabel.appendChild(browseCheckbox);
-
-var browseSpan = document.createElement('span');
-browseSpan.setAttribute("class", "slider round");
-browseBlankLabel.appendChild(browseSpan);
-
-theForm.appendChild(browseBlankLabel);
-theForm.appendChild(document.createElement('br'));
+// var browseActivityLabel = document.createElement('label');
+// browseActivityLabel.innerHTML = "Browse activity?&nbsp;";
+// theForm.appendChild(browseActivityLabel);
+//
+// var browseBlankLabel = document.createElement('label');
+// browseBlankLabel.setAttribute("class", "switch");
+// browseBlankLabel.setAttribute("style", "margin-left: 0%");
+//
+// var browseCheckbox = document.createElement('input');
+// browseCheckbox.setAttribute("type", "checkbox");
+// browseCheckbox.setAttribute("name", "browseTransactions");
+// browseBlankLabel.appendChild(browseCheckbox);
+//
+// var browseSpan = document.createElement('span');
+// browseSpan.setAttribute("class", "slider round");
+// browseBlankLabel.appendChild(browseSpan);
+//
+// theForm.appendChild(browseBlankLabel);
+// theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------
@@ -168,31 +168,33 @@ receiveMoneySpan.setAttribute("class", "slider round");
 moneyBlank2Label.appendChild(receiveMoneySpan);
 
 theForm.appendChild(moneyBlank2Label);
-var bufferSpan2 = document.createElement('span');
-bufferSpan2.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-theForm.appendChild(bufferSpan2);
+// var bufferSpan2 = document.createElement('span');
+// bufferSpan2.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+// theForm.appendChild(bufferSpan2);
+theForm.appendChild(document.createElement('br'));
+
 
 //-------------------------------------------------
 //Did you use Venmo to invite friends to join?
-var inviteOthersLabel = document.createElement('label');
-inviteOthersLabel.innerHTML = "Invite/add friends?&nbsp;";
-theForm.appendChild(inviteOthersLabel);
-
-var inviteBlankLabel = document.createElement('label');
-inviteBlankLabel.setAttribute("class", "switch");
-inviteBlankLabel.setAttribute("style", "margin-left: 0%");
-
-var inviteCheckbox = document.createElement('input');
-inviteCheckbox.setAttribute("type", "checkbox");
-inviteCheckbox.setAttribute("name", "inviteFriends");
-inviteBlankLabel.appendChild(inviteCheckbox);
-
-var inviteSpan = document.createElement('span');
-inviteSpan.setAttribute("class", "slider round");
-inviteBlankLabel.appendChild(inviteSpan);
-
-theForm.appendChild(inviteBlankLabel);
-theForm.appendChild(document.createElement('br'));
+// var inviteOthersLabel = document.createElement('label');
+// inviteOthersLabel.innerHTML = "Invite/add friends?&nbsp;";
+// theForm.appendChild(inviteOthersLabel);
+//
+// var inviteBlankLabel = document.createElement('label');
+// inviteBlankLabel.setAttribute("class", "switch");
+// inviteBlankLabel.setAttribute("style", "margin-left: 0%");
+//
+// var inviteCheckbox = document.createElement('input');
+// inviteCheckbox.setAttribute("type", "checkbox");
+// inviteCheckbox.setAttribute("name", "inviteFriends");
+// inviteBlankLabel.appendChild(inviteCheckbox);
+//
+// var inviteSpan = document.createElement('span');
+// inviteSpan.setAttribute("class", "slider round");
+// inviteBlankLabel.appendChild(inviteSpan);
+//
+// theForm.appendChild(inviteBlankLabel);
+// theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------
@@ -216,32 +218,35 @@ requestMoneySpan.setAttribute("class", "slider round");
 moneyBlank3Label.appendChild(requestMoneySpan);
 
 theForm.appendChild(moneyBlank3Label);
-var bufferSpan3 = document.createElement('span');
-bufferSpan3.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-theForm.appendChild(bufferSpan3);
+// var bufferSpan3 = document.createElement('span');
+// bufferSpan3.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+// theForm.appendChild(bufferSpan3);
+theForm.appendChild(document.createElement('br'));
+theForm.appendChild(document.createElement('br'));
+
 
 //-------------------------------------------------
 //Did you adjust any account settings in Venmo?
-var adjustSettingsLabel = document.createElement('label');
-adjustSettingsLabel.innerHTML = "Adjust settings?&nbsp;";
-theForm.appendChild(adjustSettingsLabel);
-
-var settingsBlankLabel = document.createElement('label');
-settingsBlankLabel.setAttribute("class", "switch");
-settingsBlankLabel.setAttribute("style", "margin-left: 0%");
-
-var settingsCheckbox = document.createElement('input');
-settingsCheckbox.setAttribute("type", "checkbox");
-settingsCheckbox.setAttribute("name", "updateSettings");
-settingsBlankLabel.appendChild(settingsCheckbox);
-
-var settingsSpan = document.createElement('span');
-settingsSpan.setAttribute("class", "slider round");
-settingsBlankLabel.appendChild(settingsSpan);
-
-theForm.appendChild(settingsBlankLabel);
-theForm.appendChild(document.createElement('br'));
-theForm.appendChild(document.createElement('br'));
+// var adjustSettingsLabel = document.createElement('label');
+// adjustSettingsLabel.innerHTML = "Adjust settings?&nbsp;";
+// theForm.appendChild(adjustSettingsLabel);
+//
+// var settingsBlankLabel = document.createElement('label');
+// settingsBlankLabel.setAttribute("class", "switch");
+// settingsBlankLabel.setAttribute("style", "margin-left: 0%");
+//
+// var settingsCheckbox = document.createElement('input');
+// settingsCheckbox.setAttribute("type", "checkbox");
+// settingsCheckbox.setAttribute("name", "updateSettings");
+// settingsBlankLabel.appendChild(settingsCheckbox);
+//
+// var settingsSpan = document.createElement('span');
+// settingsSpan.setAttribute("class", "slider round");
+// settingsBlankLabel.appendChild(settingsSpan);
+//
+// theForm.appendChild(settingsBlankLabel);
+// theForm.appendChild(document.createElement('br'));
+// theForm.appendChild(document.createElement('br'));
 
 
 //-------------------------------------------------
@@ -251,7 +256,6 @@ if (!smallScr) clicksText.setAttribute("style", "margin-left: 28%;");
 else clicksText.setAttribute("style", "margin-left: 0%");
 clicksText.innerHTML = "In total, about how many clicks did it take?";
 theForm.appendChild(clicksText);
-theForm.appendChild(document.createElement('br'));
 
 //-------------------------------------------------
 //How many clicks?
@@ -326,8 +330,8 @@ var notesLabel = document.createElement('label');
 notesLabel.innerHTML = "Any notes?&nbsp;";
 theForm.appendChild(notesLabel);
 
-var notesData = document.createElement('input');
-notesData.setAttribute("type", "text");
+var notesData = document.createElement('textarea');
+// notesData.setAttribute("type", "text");
 notesData.setAttribute("min", "0");
 notesData.setAttribute("name", "notes");
 theForm.appendChild(notesData);

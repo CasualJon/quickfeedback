@@ -14,10 +14,10 @@ const moodData = {
 //Create arrays for multi-select category lists
 var uID = [
   "",           //Empty value
-  "buelogoalie",
-  "hyang284",
-  "jye26",
-  "mceisel",
+  "Aaron",
+  "Heejun",
+  "Jiatao",
+  "Monica",
 ];
 
 //Fetch HTML element by ID

@@ -14,11 +14,11 @@ const moodData = {
 //Create arrays for multi-select category lists
 var uID = [
   "",           //Empty value
-  "Aaron",
-  "Heejun",
-  "Jiatao",
-  "Leigh",
-  "Monica",
+  // "Aaron",
+  // "Heejun",
+  // "Jiatao",
+  // "Leigh",
+  // "Monica",
 ];
 
 //Fetch HTML element by ID
@@ -415,8 +415,8 @@ function validateAndSubmit() {
     return;
   }
   //Submit the form
-  document.feedbackForm.action="https://www.getform.org/f/8c8145d9-3959-4f6f-b869-85e301cd1824";
-  document.feedbackForm.submit();
+  // document.feedbackForm.action="https://www.getform.org/f/8c8145d9-3959-4f6f-b869-85e301cd1824";
+  // document.feedbackForm.submit();
 
   var info = "<div class=\"text-center\"><hr><h3>You're all set!</h3><br />";
   info += "<h4>Everthing looks good, thank  you! The form is on it's way.<br /><br />";
